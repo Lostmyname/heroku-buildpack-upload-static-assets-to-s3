@@ -24,8 +24,8 @@ VENDOR_DIR="$BUILD_DIR/vendor"
 source ${BP_DIR}/lib/output.sh
 source ${BP_DIR}/lib/environment.sh
 
+### Export ENV variables
 export_env_dir ${ENV_DIR}
-header "AWS_ACCESS_KEY_ID: $AWS_ACCESS_KEY_ID"
 
 if [ ! -f ~/bin/aws ]
 then
@@ -40,21 +40,15 @@ fi
 
 header $(~/bin/aws --version)
 
+mkdir ~/.aws
 
-#
-#
-#
-#header "KEY: $AWS_KEY"
-#
-#mkdir ~/.aws
-#
-#cat >> ~/.aws/credentials << EOF
-#[default]
-#aws_access_key_id=$AWS_KEY
-#aws_secret_access_key=$AWS_SECRET_KEY
-#EOF
-#
-#cat >> ~/.aws/config << EOF
-#[default]
-#region=$AWS_REGION
-#EOF
+cat >> ~/.aws/credentials << EOF
+[default]
+aws_access_key_id=$AWS_ACCESS_KEY_ID
+aws_secret_access_key=$AWS_SECRET_ACCESS_KEY
+EOF
+
+cat >> ~/.aws/config << EOF
+[default]
+region=$AWS_DEFAULT_REGION
+EOF
