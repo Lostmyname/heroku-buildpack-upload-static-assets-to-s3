@@ -8,8 +8,6 @@ set -o pipefail   # don't ignore exit codes when piping output
 set -o nounset    # fail on unset variables
 unset GIT_DIR     # Avoid GIT_DIR leak from previous build steps
 
-
-
 ### Configure directories
 BUILD_DIR=${1:-}
 CACHE_DIR=${2:-}
@@ -24,6 +22,7 @@ VENDOR_DIR="$BUILD_DIR/vendor"
 
 ### Load dependencies
 source ${BP_DIR}/lib/output.sh
+source ${BP_DIR}/lib/environment.sh
 
 if [ ! -f ~/bin/aws ]
 then
@@ -37,6 +36,8 @@ else
 fi
 
 header $(~/bin/aws --version)
+
+export_env_dir
 
 header "KEY: $AWS_KEY"
 
