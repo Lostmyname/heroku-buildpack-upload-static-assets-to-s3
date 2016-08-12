@@ -27,9 +27,9 @@ source ${BP_DIR}/lib/output.sh
 
 header "Installing AWS CLI"
 
-curl --progress-bar -o ${AWS_CLI_ZIP_LOCATION} ${AWS_CLI_URL} | output "$LOG_FILE"
-unzip -qq -o -d ${VENDOR_DIR} ${AWS_CLI_ZIP_LOCATION} | output "$LOG_FILE"
+curl --progress-bar -o ${AWS_CLI_ZIP_LOCATION} ${AWS_CLI_URL}
+unzip -qq -o -d ${VENDOR_DIR} ${AWS_CLI_ZIP_LOCATION}
 ${VENDOR_DIR}/awscli-bundle/install -b ~/bin/aws | output "$LOG_FILE"
 
 header "Installed AWS CLI"
-info $(/app/bin/aws --version)
+/app/bin/aws --version | output "$LOG_FILE"
