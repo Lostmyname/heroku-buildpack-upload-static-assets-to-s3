@@ -20,6 +20,8 @@ AWS_CLI_URL="https://s3.amazonaws.com/aws-cli/awscli-bundle.zip"
 AWS_CLI_ZIP_LOCATION="/tmp/awscli-bundle.zip"
 VENDOR_DIR="$BUILD_DIR/vendor"
 
+ls -lah ${ENV_DIR}
+
 ### Load dependencies
 source ${BP_DIR}/lib/output.sh
 source ${BP_DIR}/lib/environment.sh
@@ -37,19 +39,21 @@ fi
 
 header $(~/bin/aws --version)
 
-export_env_dir ${ENV_DIR}
 
-header "KEY: $AWS_KEY"
-
-mkdir ~/.aws
-
-cat >> ~/.aws/credentials << EOF
-[default]
-aws_access_key_id=$AWS_KEY
-aws_secret_access_key=$AWS_SECRET_KEY
-EOF
-
-cat >> ~/.aws/config << EOF
-[default]
-region=$AWS_REGION
-EOF
+#
+#export_env_dir ${ENV_DIR}
+#
+#header "KEY: $AWS_KEY"
+#
+#mkdir ~/.aws
+#
+#cat >> ~/.aws/credentials << EOF
+#[default]
+#aws_access_key_id=$AWS_KEY
+#aws_secret_access_key=$AWS_SECRET_KEY
+#EOF
+#
+#cat >> ~/.aws/config << EOF
+#[default]
+#region=$AWS_REGION
+#EOF
