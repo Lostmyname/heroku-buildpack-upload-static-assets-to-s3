@@ -21,7 +21,6 @@ LOG_FILE='/tmp/node-build-log.txt'
 AWS_CLI_URL="https://s3.amazonaws.com/aws-cli/awscli-bundle.zip"
 AWS_CLI_ZIP_LOCATION="/tmp/awscli-bundle.zip"
 VENDOR_DIR="$BUILD_DIR/vendor"
-AWS="/app/bin/aws"
 
 ### Load dependencies
 source ${BP_DIR}/lib/output.sh
@@ -33,4 +32,4 @@ unzip -qq -o -d ${VENDOR_DIR} ${AWS_CLI_ZIP_LOCATION}
 ${VENDOR_DIR}/awscli-bundle/install -b ~/bin/aws | output "$LOG_FILE"
 
 header "Installed AWS CLI"
-info $($AWS --version)
+info $(~/bin/aws --version)
