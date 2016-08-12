@@ -30,6 +30,7 @@ export_env_dir ${ENV_DIR}
 ### Upload with Node
 npm install | output "$LOG_FILE"
 
+CACHE_DIR=${CACHE_DIR} \
 BUILD_DIR=${BUILD_DIR} \
 ENV_DIR=${ENV_DIR} \
 SOURCE_VERSION=${SOURCE_VERSION} \
