@@ -20,11 +20,12 @@ AWS_CLI_URL="https://s3.amazonaws.com/aws-cli/awscli-bundle.zip"
 AWS_CLI_ZIP_LOCATION="/tmp/awscli-bundle.zip"
 VENDOR_DIR="$BUILD_DIR/vendor"
 
-ls -lah ${ENV_DIR}
-
 ### Load dependencies
 source ${BP_DIR}/lib/output.sh
 source ${BP_DIR}/lib/environment.sh
+
+
+header "AWS_ACCESS_KEY_ID: $AWS_ACCESS_KEY_ID"
 
 if [ ! -f ~/bin/aws ]
 then
