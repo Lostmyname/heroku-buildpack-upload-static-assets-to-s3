@@ -25,8 +25,7 @@ VENDOR_DIR="$BUILD_DIR/vendor"
 source ${BP_DIR}/lib/output.sh
 source ${BP_DIR}/lib/environment.sh
 
-ls -lah
-
+npm install
 node ${BP_DIR}/lib/upload.js
 
 #### Export ENV variables
