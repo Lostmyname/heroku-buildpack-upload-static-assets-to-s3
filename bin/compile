@@ -20,6 +20,9 @@ AWS_CLI_URL="https://s3.amazonaws.com/aws-cli/awscli-bundle.zip"
 AWS_CLI_ZIP_LOCATION="/tmp/awscli-bundle.zip"
 VENDOR_DIR="$BUILD_DIR/vendor"
 
+header "SOURCE_VERSION: $SOURCE_VERSION"
+
+
 ### Load dependencies
 source ${BP_DIR}/lib/output.sh
 source ${BP_DIR}/lib/environment.sh
