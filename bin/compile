@@ -37,7 +37,7 @@ fi
 
 header $(~/bin/aws --version)
 
-export_env_dir
+export_env_dir ${ENV_DIR}
 
 header "KEY: $AWS_KEY"
 
