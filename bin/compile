@@ -25,6 +25,6 @@ source ${BP_DIR}/lib/output.sh
 
 header "Installing AWS CLI"
 
-AWS_CLI=$(which awscli)
+AWS_CLI="fish"
 info $AWS_CLI
 
