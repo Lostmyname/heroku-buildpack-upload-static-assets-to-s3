@@ -25,7 +25,7 @@ source ${BP_DIR}/lib/output.sh
 
 ### Configure Variables
 
-AWS_CLI=${which awscli}
+AWS_CLI=$(which awscli)
 
 header "Installing AWS CLI"
-info ${AWS_CLI}
+info "AWS_CLI is $AWS_CLI"
