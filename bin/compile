@@ -24,11 +24,15 @@ VENDOR_DIR="$BUILD_DIR/vendor"
 source ${BP_DIR}/lib/output.sh
 source ${BP_DIR}/lib/environment.sh
 
+#### Export ENV variables
+export_env_dir ${ENV_DIR}
+
+### Upload with Node
 npm install | output "$LOG_FILE"
 printenv | node ${BP_DIR}/lib/upload.js | output "$LOG_FILE"
 
-#### Export ENV variables
-#export_env_dir ${ENV_DIR}
+
+#
 #
 #### DEV
 #printenv
