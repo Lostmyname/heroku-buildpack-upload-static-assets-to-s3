@@ -28,7 +28,7 @@ header "Installing AWS CLI"
 
 curl --progress-bar -o ${AWS_CLI_ZIP_LOCATION} ${AWS_CLI_URL}
 unzip -qq -d ${VENDOR_DIR} ${AWS_CLI_ZIP_LOCATION}
-yes | ${VENDOR_DIR}/awscli-bundle/install -b ~/bin/aws
+${VENDOR_DIR}/awscli-bundle/install -b ~/bin/aws
 
 header "Installed AWS CLI"
 # info $(/app/bin/aws --version)
