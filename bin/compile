@@ -28,7 +28,8 @@ source ${BP_DIR}/lib/environment.sh
 ### Export ENV variables
 export_env_dir ${ENV_DIR}
 
-
+### DEV
+printenv
 header "SOURCE_VERSION: $SOURCE_VERSION"
 
 ### Install AWS CLI
