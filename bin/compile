@@ -31,4 +31,4 @@ unzip -qq -d ${VENDOR_DIR} ${AWS_CLI_ZIP_LOCATION}
 yes | ${VENDOR_DIR}/awscli-bundle/install -b ~/bin/aws
 
 header "Installed AWS CLI"
-info $(/app/bin/aws --version)
+# info $(/app/bin/aws --version)
