@@ -1,3 +1,8 @@
 #!/bin/sh
+
+indent() {
+  sed -u 's/^/       /'
+}
+
 ls -lah $BUILD_DIR
-echo $SOURCE_VERSION
+echo "SOURCE_VERSION: $SOURCE_VERSION"
