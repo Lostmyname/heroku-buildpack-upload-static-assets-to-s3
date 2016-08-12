@@ -36,4 +36,4 @@ else
     header "AWS CLI Already installed"
 fi
 
-header "AWS CLI: $(~/bin/aws --version)"
+header $(~/bin/aws --version)
