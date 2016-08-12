@@ -24,10 +24,7 @@ BP_DIR=$(cd $(dirname ${0:-}); cd ..; pwd)
 source ${BP_DIR}/lib/output.sh
 
 header "Installing AWS CLI"
-info $BUILD_DIR $CACHE_DIR $ENV_DIR $BP_DIR
 
-### Configure Variables
+AWS_CLI=$(which awscli)
+info $AWS_CLI
 
-# AWS_CLI=$(which awscli)
-
-# info ${AWS_CLI}
