@@ -1,0 +1,22 @@
+{
+  "name": "heroku-buildpack-upload-static-assets-to-s3",
+  "version": "1.0.0",
+  "description": "Uploads static assets to S3 when deploying to heroku",
+  "main": "lib/upload.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Lostmyname/heroku-buildpack-upload-static-assets-to-s3.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Lostmyname/heroku-buildpack-upload-static-assets-to-s3/issues"
+  },
+  "homepage": "https://github.com/Lostmyname/heroku-buildpack-upload-static-assets-to-s3#readme",
+  "dependencies": {
+    "aws-sdk": "^2.5.0"
+  }
+}
