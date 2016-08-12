@@ -1,14 +1,3 @@
 #!/bin/sh
-
-indent() {
-  sed -u 's/^/       /'
-}
-
 echo "Upload Static Assets to S3"
-echo "Installing aws-cli" | indent
-which awscli | indent
-# curl "https://s3.amazonaws.com/aws-cli/awscli-bundle.zip" -o "awscli-bundle.zip"
-# unzip awscli-bundle.zip
-# ./awscli-bundle/install -b ~/bin/aws
-# ls -lah $BUILD_DIR/bin | indent
 exit 0
