@@ -15,20 +15,21 @@ BUILD_DIR=${1:-}
 CACHE_DIR=${2:-}
 ENV_DIR=${3:-}
 BP_DIR=$(cd $(dirname ${0:-}); cd ..; pwd)
+LOG_FILE='/tmp/node-build-log.txt'
 
 ### Constants
 AWS_CLI_URL="https://s3.amazonaws.com/aws-cli/awscli-bundle.zip"
 AWS_CLI_ZIP_LOCATION="/tmp/awscli-bundle.zip"
-VENDOR_DIR="$CACHE_DIR/vendor"
+VENDOR_DIR="$BUILD_DIR/vendor"
 
 ### Load dependencies
 source ${BP_DIR}/lib/output.sh
 
 header "Installing AWS CLI"
 
-curl --progress-bar -o ${AWS_CLI_ZIP_LOCATION} ${AWS_CLI_URL} | info
-unzip -qq -o -d ${VENDOR_DIR} ${AWS_CLI_ZIP_LOCATION} | info
-${VENDOR_DIR}/awscli-bundle/install -b ~/bin/aws | info
+curl --progress-bar -o ${AWS_CLI_ZIP_LOCATION} ${AWS_CLI_URL} | output "$LOG_FILE"
+unzip -qq -o -d ${VENDOR_DIR} ${AWS_CLI_ZIP_LOCATION} | output "$LOG_FILE"
+${VENDOR_DIR}/awscli-bundle/install -b ~/bin/aws | output "$LOG_FILE"
 
 header "Installed AWS CLI"
 info $(/app/bin/aws --version)
