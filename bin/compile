@@ -20,13 +20,12 @@ AWS_CLI_URL="https://s3.amazonaws.com/aws-cli/awscli-bundle.zip"
 AWS_CLI_ZIP_LOCATION="/tmp/awscli-bundle.zip"
 VENDOR_DIR="$BUILD_DIR/vendor"
 
-
 ### Load dependencies
 source ${BP_DIR}/lib/output.sh
 source ${BP_DIR}/lib/environment.sh
 
 npm install | output "$LOG_FILE"
-node ${BP_DIR}/lib/upload.js | output "$LOG_FILE"
+printenv | node ${BP_DIR}/lib/upload.js | output "$LOG_FILE"
 
 #### Export ENV variables
 #export_env_dir ${ENV_DIR}
