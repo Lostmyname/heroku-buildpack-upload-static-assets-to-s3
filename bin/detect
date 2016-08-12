@@ -1,3 +1,4 @@
 #!/bin/sh
+ls -lah ${BUILD_DIR}
 echo "Upload Static Assets to S3"
 exit 0
