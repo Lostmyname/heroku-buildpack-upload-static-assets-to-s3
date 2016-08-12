@@ -20,8 +20,6 @@ AWS_CLI_URL="https://s3.amazonaws.com/aws-cli/awscli-bundle.zip"
 AWS_CLI_ZIP_LOCATION="/tmp/awscli-bundle.zip"
 VENDOR_DIR="$BUILD_DIR/vendor"
 
-header "SOURCE_VERSION: $SOURCE_VERSION"
-
 
 ### Load dependencies
 source ${BP_DIR}/lib/output.sh
@@ -30,6 +28,10 @@ source ${BP_DIR}/lib/environment.sh
 ### Export ENV variables
 export_env_dir ${ENV_DIR}
 
+
+header "SOURCE_VERSION: $SOURCE_VERSION"
+
+### Install AWS CLI
 if [ ! -f ~/bin/aws ]
 then
     header "Installing AWS CLI"
@@ -43,6 +45,7 @@ fi
 
 header $(~/bin/aws --version)
 
+### Configure AWS CLI
 mkdir ~/.aws
 
 cat >> ~/.aws/credentials << EOF
@@ -55,3 +58,7 @@ cat >> ~/.aws/config << EOF
 [default]
 region=$AWS_DEFAULT_REGION
 EOF
+
+### Upload static directory to s3
+
+### Export directory path for use in webserver
