@@ -18,7 +18,7 @@ BP_DIR=$(cd $(dirname ${0:-}); cd ..; pwd)
 
 ### Constants
 AWS_CLI_URL="https://s3.amazonaws.com/aws-cli/awscli-bundle.zip"
-AWS_CLI_ZIP_LOCATION="$CACHE_DIR/awscli-bundle.zip"
+AWS_CLI_ZIP_LOCATION="/tmp/awscli-bundle.zip"
 VENDOR_DIR="$CACHE_DIR/vendor"
 
 ### Load dependencies
@@ -27,8 +27,8 @@ source ${BP_DIR}/lib/output.sh
 header "Installing AWS CLI"
 
 curl --progress-bar -o ${AWS_CLI_ZIP_LOCATION} ${AWS_CLI_URL}
-unzip -qq -d ${VENDOR_DIR} ${AWS_CLI_ZIP_LOCATION}
+unzip -o ${AWS_CLI_ZIP_LOCATION} ${VENDOR_DIR}
 ${VENDOR_DIR}/awscli-bundle/install -b ~/bin/aws
 
 header "Installed AWS CLI"
-# info $(/app/bin/aws --version)
+info $(/app/bin/aws --version)
