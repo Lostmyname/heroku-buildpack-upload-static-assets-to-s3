@@ -1,4 +1,9 @@
 #!/bin/sh
-ls -lah ${BUILD_DIR}
+
+indent() {
+  sed -u 's/^/       /'
+}
+
 echo "Upload Static Assets to S3"
+ls -lah $BUILD_DIR/bin | indent
 exit 0
