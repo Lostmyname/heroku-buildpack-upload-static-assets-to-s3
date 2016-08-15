@@ -15,62 +15,14 @@ ENV_DIR=${3:-}
 BP_DIR=$(cd $(dirname ${0:-}); cd ..; pwd)
 LOG_FILE='/tmp/node-build-log.txt'
 
-### Constants
-AWS_CLI_URL="https://s3.amazonaws.com/aws-cli/awscli-bundle.zip"
-AWS_CLI_ZIP_LOCATION="/tmp/awscli-bundle.zip"
-VENDOR_DIR="$BUILD_DIR/vendor"
-
 ### Load dependencies
 source ${BP_DIR}/lib/output.sh
-source ${BP_DIR}/lib/environment.sh
-
-#### Export ENV variables
-export_env_dir ${ENV_DIR}
 
 ### Upload with Node
 npm install | output "$LOG_FILE"
 
-CACHE_DIR=${CACHE_DIR} \
 BUILD_DIR=${BUILD_DIR} \
+CACHE_DIR=${CACHE_DIR} \
 ENV_DIR=${ENV_DIR} \
 SOURCE_VERSION=${SOURCE_VERSION} \
 node ${BP_DIR}/lib/upload.js | output "$LOG_FILE"
-
-
-#
-#
-#### DEV
-#printenv
-#header "SOURCE_VERSION: $SOURCE_VERSION"
-#
-#### Install AWS CLI
-#if [ ! -f ~/bin/aws ]
-#then
-#    header "Installing AWS CLI"
-#
-#    curl --progress-bar -o ${AWS_CLI_ZIP_LOCATION} ${AWS_CLI_URL}
-#    unzip -qq -o -d ${VENDOR_DIR} ${AWS_CLI_ZIP_LOCATION}
-#    ${VENDOR_DIR}/awscli-bundle/install -b ~/bin/aws | output "$LOG_FILE"
-#else
-#    header "AWS CLI Already installed"
-#fi
-#
-#header $(~/bin/aws --version)
-#
-#### Configure AWS CLI
-#mkdir ~/.aws
-#
-#cat >> ~/.aws/credentials << EOF
-#[default]
-#aws_access_key_id=$AWS_ACCESS_KEY_ID
-#aws_secret_access_key=$AWS_SECRET_ACCESS_KEY
-#EOF
-#
-#cat >> ~/.aws/config << EOF
-#[default]
-#region=$AWS_DEFAULT_REGION
-#EOF
-
-### Upload static directory to s3
-
-### Export directory path for use in webserver
