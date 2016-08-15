@@ -8,8 +8,8 @@ Example:
 ```sh
 AWS_DEFAULT_REGION=eu-west-1
 AWS_BUCKET_NAME=website-static-assets
-AWS_STATIC_PREFIX=public
-AWS_UPLOAD_DIRECTORY=phoenix
+AWS_STATIC_PREFIX=phoenix
+AWS_UPLOAD_DIRECTORY=public
 AWS_ACCESS_KEY_ID=<aws access key id>
 AWS_SECRET_ACCESS_KEY=<aws secret access key>
 ```
