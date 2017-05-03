@@ -16,6 +16,26 @@ AWS_STATIC_PREFIX=static
 AWS_STATIC_SOURCE_DIRECTORY=public
 ```
 
+**Note:** We found that when apps shared the same `AWS_STATIC_BUCKET_NAME`,
+`AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` deploying any of these
+apps would create variable bleed, essentially environment variables within Heroku would
+be bundled into a js file and uploaded to the shared AWS bucket..
+
+One of the issues with this was that the browser would try to make calls to domains
+different to the one we were on. This was particualrly prevalent on the staging
+website were we would see redirect calls to `seotesting.lostmy.name`.
+
+To resolve this, Infra have created new S3 buckets for QA and SEO apps:
+
+```
+lmn-website-qa1
+lmn-website-aq2
+lmn-website-seo
+```
+
+In order to avoid issues going forward it would be best to request a new bucket
+to be created for each app.
+
 # Exported Environment Variables to runtime
 
 ```sh
@@ -34,4 +54,3 @@ To return to the default value just unset the config vars
 ```
 heroku config:unset STATIC_SERVER
 ```
-
