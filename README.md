@@ -3,7 +3,7 @@
 Uploads static assets to S3 when deploying to heroku.
 Requires NodeJS to be installed when building.
 
-# Setting Mandatory Environment Variables for build
+# Setting Mandatory Environment Variables for Build
 
 ```
 AWS_ACCESS_KEY_ID=<aws access key id>
@@ -16,7 +16,7 @@ AWS_STATIC_PREFIX=static
 AWS_STATIC_SOURCE_DIRECTORY=public
 ```
 
-# Exported Environment Variables to runtime
+# Exported Environment Variables to Runtime
 
 ```sh
 STATIC_SERVER=<AWS_STATIC_BUCKET_NAME>.s3.amazonaws.com
