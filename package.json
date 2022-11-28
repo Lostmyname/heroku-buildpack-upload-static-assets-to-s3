@@ -8,20 +8,20 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Lostmyname/heroku-buildpack-upload-static-assets-to-s3.git"
+    "url": "git+https://github.com/bonobos/heroku-buildpack-upload-static-assets-to-s3.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Lostmyname/heroku-buildpack-upload-static-assets-to-s3/issues"
+    "url": "https://github.com/bonobos/heroku-buildpack-upload-static-assets-to-s3/issues"
   },
-  "homepage": "https://github.com/Lostmyname/heroku-buildpack-upload-static-assets-to-s3#readme",
+  "homepage": "https://github.com/bonobos/heroku-buildpack-upload-static-assets-to-s3#readme",
   "dependencies": {
-    "async": "^2.0.1",
-    "aws-sdk": "^2.5.0",
-    "glob": "^7.0.5",
-    "lodash": "^4.15.0",
-    "mime-types": "^2.1.11",
-    "shelljs": "^0.7.3"
+    "async": "^3.2.4",
+    "aws-sdk": "^2.1262.0",
+    "glob": "^8.0.3",
+    "lodash": "^4.17.21",
+    "mime-types": "^2.1.35",
+    "shelljs": "^0.8.5"
   }
 }
