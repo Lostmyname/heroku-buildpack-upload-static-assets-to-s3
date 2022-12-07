@@ -4,7 +4,7 @@
   "description": "Uploads static assets to S3 when deploying to heroku",
   "main": "lib/upload.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -20,6 +20,7 @@
     "async": "^3.2.4",
     "aws-sdk": "^2.1262.0",
     "glob": "^8.0.3",
+    "jest": "^29.3.1",
     "lodash": "^4.17.21",
     "mime-types": "^2.1.35",
     "shelljs": "^0.8.5"
